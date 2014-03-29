@@ -1,0 +1,19 @@
+
+<h1><%= @user.name.capitalize %>'s Profile Page</h1>
+<img src="<%=@user.picture_url %>">
+<h2>
+  <a href="<%=@user.github_url %>"><button>GitHub</button></a></br>
+  <a href="https://www.pivotaltracker.com/signin"><button>Pivotal Tracker</button></a>
+  <% if @user.personal_url != nil %>
+  <a href="<%=@user.personal_url %>"><button>Personal Website</button></a></br>
+  <% end %>
+</h2>
+<h3>Learning Objectives</h3>
+<ul>
+  <li>
+  </li>
+</ul>
+
+<a href="/">Home Page</a>
+<a href="/users/<%= @user.id %>/edit">Home Page</a>
+

@@ -10,6 +10,8 @@ GatherApp::Application.routes.draw do
   resources :resources
   resources :session, only:[:new, :create, :destroy]
 
+  get '/logout' => 'session#destroy'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -59,3 +61,35 @@ GatherApp::Application.routes.draw do
   #     resources :products
   #   end
 end
+
+
+#  Prefix Verb   URI Pattern                    Controller#Action
+#           root GET    /                              welcome#index
+#          users GET    /users(.:format)               users#index
+#                POST   /users(.:format)               users#create
+#       new_user GET    /users/new(.:format)           users#new
+#      edit_user GET    /users/:id/edit(.:format)      users#edit
+#           user GET    /users/:id(.:format)           users#show
+#                PATCH  /users/:id(.:format)           users#update
+#                PUT    /users/:id(.:format)           users#update
+#                DELETE /users/:id(.:format)           users#destroy
+#     objectives GET    /objectives(.:format)          objectives#index
+#                POST   /objectives(.:format)          objectives#create
+#  new_objective GET    /objectives/new(.:format)      objectives#new
+# edit_objective GET    /objectives/:id/edit(.:format) objectives#edit
+#      objective GET    /objectives/:id(.:format)      objectives#show
+#                PATCH  /objectives/:id(.:format)      objectives#update
+#                PUT    /objectives/:id(.:format)      objectives#update
+#                DELETE /objectives/:id(.:format)      objectives#destroy
+#      resources GET    /resources(.:format)           resources#index
+#                POST   /resources(.:format)           resources#create
+#   new_resource GET    /resources/new(.:format)       resources#new
+#  edit_resource GET    /resources/:id/edit(.:format)  resources#edit
+#       resource GET    /resources/:id(.:format)       resources#show
+#                PATCH  /resources/:id(.:format)       resources#update
+#                PUT    /resources/:id(.:format)       resources#update
+#                DELETE /resources/:id(.:format)       resources#destroy
+#  session_index POST   /session(.:format)             session#create
+#    new_session GET    /session/new(.:format)         session#new
+#        session DELETE /session/:id(.:format)         session#destroy
+#         logout GET    /logout(.:format)              session#destroy
