@@ -1,1 +1,19 @@
-_forms.html.erb
+<%= form_for(@user) do |f| %>
+
+<%= f.label(:name) %>*
+<%= f.text_field(:name) %>
+<%= f.label(:email) %>*
+<%= f.text_field(:email) %>
+<%= f.label(:github_url) %>*
+<%= f.text_field(:github_url) %>
+<%= f.label(:picture_url) %>
+<%= f.text_field(:picture_url) %>
+<%= f.label(:personal_url) %>
+<%= f.text_field(:personal_url) %>
+<%= f.label(:password) %>*
+<%= f.password_field(:password) %>
+<%= f.label(:password_confirmation) %>*
+<%= f.password_field(:password_confirmation) %>
+
+<%= f.submit("Submit") %>
+<% end %>

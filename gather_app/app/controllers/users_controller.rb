@@ -28,8 +28,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    if @user.save
+    @user = User.find_by(id: params[:id])
+    if @user.update(user_params)
       redirect_to("/users/#{@user.id}")
     else
       render(:edit)
