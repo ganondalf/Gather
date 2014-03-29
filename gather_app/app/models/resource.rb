@@ -1,5 +1,8 @@
 class Resource < ActiveRecord::Base
-  belongs_to :objective
+
+  has_many :objectives
+  has_many :weeks, through: :objectives
+
   validates :url, presence: true
   validates :description, length: { maximum: 500}
 end

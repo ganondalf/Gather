@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329184529) do
+ActiveRecord::Schema.define(version: 20140329221703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "objectives", force: true do |t|
-    t.string  "name"
-    t.string  "description"
-    t.string  "week"
-    t.integer "mastery",     default: 0
-    t.integer "user_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "mastery",     default: 0
+    t.integer  "week_id"
+    t.integer  "resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "objectives_users", id: false, force: true do |t|
@@ -30,19 +32,28 @@ ActiveRecord::Schema.define(version: 20140329184529) do
   end
 
   create_table "resources", force: true do |t|
-    t.string  "url"
-    t.string  "description"
-    t.integer "objective_id"
+    t.string   "url"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string  "name"
-    t.string  "email"
-    t.string  "password_digest"
-    t.string  "github_url"
-    t.string  "personal_url"
-    t.boolean "admin",           default: false
-    t.string  "picture_url"
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "github_url"
+    t.string   "personal_url"
+    t.boolean  "admin",           default: false
+    t.string   "picture_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weeks", force: true do |t|
+    t.integer  "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
