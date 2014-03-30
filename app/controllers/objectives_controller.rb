@@ -20,13 +20,11 @@ class ObjectivesController < ApplicationController
     end
   end
 
-  def delete
-    @objective.find_by(id: params[:id])
-
-    @objective.destroy
-
-    redirect_to("/objectives")
-  end
+  # def delete
+  #   @objective.find_by(id: params[:id])
+  #   @objective.destroy
+  #   redirect_to("/objectives")
+  # end
 
   private
     def objective_params
@@ -36,7 +34,5 @@ class ObjectivesController < ApplicationController
         :week_id
         )
     end
-
-
 
 end
