@@ -1,0 +1,10 @@
+<h1>Welcome to GAther!</h1>
+
+<% if logged_in? %>
+    <h1>Hello <%= current_user.name %></h1>
+    <a href="/logout">Logout</a>
+<% else %>
+    <a href="users/new">Sign Up</a>
+    <a href="session/new">Login</a>
+    <a href="objectives">Learning Objectives</a>
+<% end %>

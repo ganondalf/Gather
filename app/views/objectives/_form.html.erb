@@ -1,0 +1,14 @@
+<!-- Form adding and editing learning objectives. Should only be available to admins/instructors -->
+
+
+<%= form_for(@objective) do |f| %>
+<%= f.label(:name) %>
+<%= f.text_field(:name) %>
+<%= f.label(:description) %>
+<%= f.text_field(:description) %>
+<%= f.label(:week) %>
+<%= f.collection_select(:week_id, @weeks, :id, :name) %>
+<%= f.submit("Submit") %>
+<% end %>
+
+

@@ -1,0 +1,9 @@
+<h1>Sign up here:</h1>
+Required fields (*)
+
+<!-- This will show the error if the user sign up was unsuccessful. Rails gives you a magial  -->
+<% @user.errors.messages.each do |attr, message| %>
+  <p>error on <%= attr %><%= message %></p>
+<% end %>
+
+<%= render 'forms' %>

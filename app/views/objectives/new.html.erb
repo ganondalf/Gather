@@ -1,0 +1,7 @@
+<h1>Add a new learning objective</h1>
+
+<% @objective.errors.messages.each do |attr, message| %>
+  <p>error on <%= attr %><%= message %></p>
+<% end %>
+
+<%= render 'form' %>

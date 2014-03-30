@@ -1,0 +1,16 @@
+<h1>Learning Objectives</h1>
+<% @objectives.each do |objective| %>
+WEEK <%= objective.week_id %>
+<ul>
+  <li><%= objective.name %>
+        <%= form_for Rank.new, as: :rank do |f| %>
+        <%= f.hidden_field :objective_id, :value => objective.id %>
+        <%= f.submit %>
+        <% end %>
+  </li>
+</ul>
+
+  <% end %>
+
+<a href="/">Homepage</a>
+
