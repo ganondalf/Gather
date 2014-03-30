@@ -16,3 +16,17 @@ user3 = User.create(name: "Max Cantor", email: "max.cantor@generalassemb.ly", gi
 
 user4 = User.create(name: "David Han", email: "david.han@generalassemb.ly", github_url: "https://github.com/davidhan527", password: "davidhan1", password_confirmation: "davidhan1", picture_url: "https://i.imgur.com/f7L243y.jpg?1", admin: true)
 
+week1 = Week.create(name: 1)
+week2 = Week.create(name: 2)
+week3 = Week.create(name: 3)
+week4 = Week.create(name: 4)
+week5 = Week.create(name: 5)
+week6 = Week.create(name: 6)
+week7 = Week.create(name: 7)
+week8 = Week.create(name: 8)
+week9 = Week.create(name: 9)
+week10 = Week.create(name: 10)
+week11 = Week.create(name: 11)
+week12 = Week.create(name: 12)
+
+

@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  it { should have_and_belong_to_many(:objectives)}
+  it { should have_many(:ranks)}
+  it { should have_many(:objectives).through(:ranks) }
 
   it { should validate_presence_of(:name)}
   it { should validate_presence_of(:email)}

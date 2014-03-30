@@ -5,15 +5,26 @@
   <a href="<%=@user.github_url %>"><button>GitHub</button></a></br>
   <a href="https://www.pivotaltracker.com/signin"><button>Pivotal Tracker</button></a>
   <% if @user.personal_url != nil %>
-  <a href="<%=@user.personal_url %>"><button>Personal Website</button></a></br>
+    <a href="<%=@user.personal_url %>"><button>Personal Website</button></a></br>
   <% end %>
 </h2>
-<h3>Learning Objectives</h3>
-<ul>
-  <li>
-  </li>
-</ul>
+
+<% if @user.is_admin? %>
+ <h2>Admin Controls</h2>
+ <p><a href="/objectives/new">Add New Objective</a></p>
+<% end %>
+
+  <h3><%= @user.name %>'s Learning Objectives</h3>
+  <ul>
+    <li><% @user.ranks.each do |rank| %>
+        <%= rank.objective.name %>:<%= rank.objective.value %>
+        <% end %>
+    </li>
+  </ul>
+
 
 <a href="/">Home Page</a>
 <a href="/users/<%= @user.id %>/edit">Edit Account</a>
+
+
 
