@@ -1,5 +1,7 @@
 class ObjectivesController < ApplicationController
 
+  before_action(:require_admin, {:except => [:index, :show]})
+
   def index
     @objectives = Objective.all
   end
@@ -20,11 +22,16 @@ class ObjectivesController < ApplicationController
     end
   end
 
-  # def delete
-  #   @objective.find_by(id: params[:id])
-  #   @objective.destroy
-  #   redirect_to("/objectives")
-  # end
+  def show
+    @objective = Objective.find(params[:id])
+    @weeks = Week.all
+  end
+
+  def destroy
+    objective = Objective.find(params[:id])
+    objective.delete
+    redirect_to("/objectives")
+  end
 
   private
     def objective_params

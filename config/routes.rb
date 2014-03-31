@@ -5,14 +5,16 @@ GatherApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  resources :issues
   resources :users
   resources :objectives
-  resources :resources
+  # resources :resources
   resources :ranks
   resources :session, only:[:new, :create, :destroy]
 
 
   get '/logout' => 'session#destroy'
+  get '/callback' => 'session#github_auth'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

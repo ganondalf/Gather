@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: weeks
+#
+#  id         :integer          not null, primary key
+#  name       :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'spec_helper'
 
 describe Week do

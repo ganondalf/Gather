@@ -6,8 +6,7 @@
   <% @objectives.each do |objective| %>
   WEEK <%= objective.week_id %>
   <ul>
-    <li><%= objective.name %>
-
+    <li><a href="/objectives/<%= objective.id %>"><%= objective.description %></a>
           <%= form_for Rank.new, as: :rank do |f| %>
             <%= f.hidden_field :objective_id, :value => objective.id %>
             <%= f.submit %>
@@ -19,4 +18,5 @@
 
 
 <a href="/">Homepage</a>
+
 

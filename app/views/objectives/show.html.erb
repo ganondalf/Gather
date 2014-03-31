@@ -1,0 +1,9 @@
+<h1>Edit or Delete the Learning Objective below:</h1>
+<%= @objective.name %>
+
+<h3>Edit</h3>
+<%= render 'form' %>
+<h3>Delete</h3>
+  <%= form_for(:objective, { :method => :delete }) do |f| %>
+  <%= f.submit "Delete" %>
+  <% end %>

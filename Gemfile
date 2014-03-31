@@ -44,11 +44,14 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development do
-  gem "pry-rails"
-end
-
 group :development, :test do
+  gem "pry-rails"
   gem "rspec-rails"
   gem "shoulda-matchers"
+
+  gem 'annotate', '~> 2.6.2'
+  gem "rails-erd"
+
 end
+
+gem 'httparty'

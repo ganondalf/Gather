@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def index
     @users = User.all
   end
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
       if @user.save
         @user = current_user
         flash[:notice] = "Thank you signing up!"
-        redirect_to("/users/#{@user.id}")
+        redirect_to("/")
       else
         render(:new)
       end
@@ -22,6 +23,8 @@ class UsersController < ApplicationController
   def show
     # @user = User.find_by(id: params[:id])
     @user = current_user
+    @client_id = ENV['GITHUB_TOKEN']
+
   end
 
   def edit
