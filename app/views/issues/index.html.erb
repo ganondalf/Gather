@@ -1,3 +1,7 @@
-<h1>Here are your github issues</h1>
-
-<%= response %>
+<h1>Your Gists:</h1>
+<% @response.each do |gist| %>
+<%= gist["raw_url"] %>
+<p>Description:</p>
+<%= gist["description"] %>
+<img src="<%= gist["url"] %>">
+<% end %>
