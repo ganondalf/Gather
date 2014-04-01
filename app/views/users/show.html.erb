@@ -1,7 +1,12 @@
+<h2><%= @user.name %>'s Profile Page</h2>
+<h3>
+  <a href="/">Home Page</a>
+  <a href="/users/<%= @user.id %>/edit">Edit Account</a>
+</h3>
 
-<h1><%= @user.name.capitalize %>'s Profile Page</h1>
 <img src="<%=@user.picture_url %>">
-<h2>
+
+<h2> Helpful Links:
   <ul>
     <li><a href="<%=@user.github_url %>">GitHub</a></li>
     <li><a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= @client_id %>">Gists</a></li>
@@ -12,22 +17,26 @@
   </ul>
 </h2>
 
-<% if @user.is_admin? %>
- <h2>Admin Controls</h2>
- <p><a href="/objectives/new">Add New Objective</a></p>
- <p><a href="/objectives">Delete An Objective</a></p>
-<% end %>
-
-  <h3><%= @user.name %>'s Learning Objectives</h3>
+<h2><%= @user.name %>'s Learning Objectives
   <ul>
     <li><% @user.ranks.each do |rank| %>
         <%= rank.objective.name %>:<%= rank.objective.value %>
         <% end %>
     </li>
   </ul>
+</h2>
 
-<a href="/">Home Page</a>
-<a href="/users/<%= @user.id %>/edit">Edit Account</a>
+<% if @user.is_admin? %>
+  <h2>Admin Controls
+    <ul>
+      <li><a href="/objectives/new">Add New Objective</a></li>
+      <li><a href="/objectives">Delete An Objective</a></li>
+    </ul>
+  </h2>
+<% end %>
+
+
+
 
 
 

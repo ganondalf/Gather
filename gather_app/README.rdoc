@@ -1,5 +1,0 @@
-pivotal:
-https://www.pivotaltracker.com/s/projects/1047292
-
-erd:
-http://i.imgur.com/kwqy6Fw.jpg

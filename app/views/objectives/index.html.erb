@@ -5,6 +5,7 @@
 <% end %>
 
 <% @objectives.each do |objective| %>
+
   WEEK <%= objective.week_id %>
   <ul>
     <li><a href="/objectives/<%= objective.id %>"><%= objective.description %></a>
