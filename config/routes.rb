@@ -8,13 +8,14 @@ GatherApp::Application.routes.draw do
   resources :issues
   resources :users
   resources :objectives
-  # resources :resources
   resources :ranks
+  # resources :resources
   resources :session, only:[:new, :create, :destroy]
 
 
   get '/logout' => 'session#destroy'
   get '/callback' => 'session#github_auth'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,12 +1,27 @@
-<h1>Welcome to GAther!</h1>
+<h1>Welcome to Gather!</h1>
 
 <% if logged_in? %>
-    <h1>Hello <%= @user.name %></h1>
-    <a href="/logout">Logout</a>
-    <a href="/users/<%= @user.id %>">Profile Page</a>
-
-<% else %>
-    <a href="users/new">Sign Up</a>
-    <a href="session/new">Login</a>
-    <a href="objectives">Learning Objectives</a>
+    <h3>Hello <%= @user.name %></h3>
 <% end %>
+
+<iframe src="https://www.google.com/calendar/embed?title=WDI%20REDUCE&amp;showPrint=0&amp;showCalendars=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23ff0000&amp;src=webdevimmersive%40gmail.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border:solid 1px #777 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+<ul>
+  <li><a href="/weeks">Syllabus</a></li>
+  <li><a href="/objectives">Learning Objectives</a></li>
+  <li><a href="/resources">Resources</a></li>
+
+  <% if logged_in? %>
+    <li><a href="/users/<%= @user.id %>">Profile Page</a></li>
+    <li><a href="/logout">Logout</a></li></li>
+  <% else %>
+    <li><a href="users/new">Sign Up</a></li>
+    <li><a href="/session/new">Login</a></li>
+  <% end %>
+
+</ul>
+
+
+
+
+

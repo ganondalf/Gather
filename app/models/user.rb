@@ -24,13 +24,12 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  def rank_objective(selection)
+  def rank_obj(objective)
 
-    rank = Rank.new(
-      user_id: self,
-      objective_id: objective_id,
-      value: selection
-      )
+    rank = Rank.new
+    rank.user = self
+    rank.objective = objective
+    rank.value = value
 
     return self.save && rank.save
   end

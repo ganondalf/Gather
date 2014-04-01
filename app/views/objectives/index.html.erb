@@ -2,21 +2,28 @@
 
 <% if @objectives.empty? %>
   <h2>No objectives exist in the database</h2>
-<% else %>
-  <% @objectives.each do |objective| %>
+<% end %>
+
+<% @objectives.each do |objective| %>
   WEEK <%= objective.week_id %>
   <ul>
     <li><a href="/objectives/<%= objective.id %>"><%= objective.description %></a>
-          <%= form_for Rank.new, as: :rank do |f| %>
-            <%= f.hidden_field :objective_id, :value => objective.id %>
-            <%= f.submit %>
-          <% end %>
+
+      <%= form_for Rank.new, as: :rank do |f| %>
+        <%= f.hidden_field :objective_id, :value => objective.id %>
+        Level of Understanding:
+        <%= f.select(:value, options_for_select(
+        [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
+        <%= f.submit(:Submit) %>
+
+        <% end %>
+
     </li>
   </ul>
-  <% end %>
 <% end %>
 
 
-<a href="/">Homepage</a>
 
+
+<a href="/">Homepage</a>
 
