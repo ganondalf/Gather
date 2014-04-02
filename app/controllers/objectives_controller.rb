@@ -27,6 +27,26 @@ class ObjectivesController < ApplicationController
     @weeks = Week.all
   end
 
+  def edit
+    @objective = Objective.find(params[:id])
+  end
+
+  def update
+    week_id = params[:objective][:week_id]
+    week = Week.find(week_id)
+
+    @objective = Objective.find(params[:id])
+    @objective.week = week
+
+
+    if @objective.save
+      redirect_to('/objectives')
+    else
+      render(:edit)
+    end
+
+  end
+
   def destroy
     objective = Objective.find(params[:id])
     objective.delete
