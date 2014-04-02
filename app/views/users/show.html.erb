@@ -52,6 +52,8 @@
       <% end %>
     </ul>
   </h3>
+  <!-- ASSIGN ALL LEARNING OBJECTIVES TO USER BY DEFAULT SO AL UNRANKED OBJECTIVES POPULATED THIS AREA -->
+  <!-- ADD EDIT FUNCTIONALITY -->
   <h3> Please rank the following:
     <ul>
       <% current_user.ranks.each do |rank| %>
@@ -64,14 +66,6 @@
     </ul>
   </h3>
 
-<% if current_user.is_admin? %>
-  <h2>Admin Controls
-    <ul>
-      <li><a href="/objectives/new">Add New Objective</a></li>
-      <li><a href="/objectives">Delete An Objective</a></li>
-    </ul>
-  </h2>
-<% end %>
 
 
 

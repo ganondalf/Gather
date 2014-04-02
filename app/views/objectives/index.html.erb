@@ -4,6 +4,7 @@
   <h2>No objectives exist in the database</h2>
 <% end %>
 
+<!-- FIGURE OUT WAY TO ORGANIZE OBJECTIVES INTO TABLES BY WEEK -->
 <% @objectives.each do |objective| %>
 
   WEEK <%= objective.week_id %>
@@ -22,7 +23,14 @@
   </ul>
 <% end %>
 
-
+<% if logged_in? && current_user.is_admin? %>
+  <h2>Admin Controls
+    <ul>
+      <li><a href="/objectives/new">Add New Objective</a></li>
+      <li><a href="/objectives">Delete An Objective</a></li>
+    </ul>
+  </h2>
+<% end %>
 
 
 <a href="/">Homepage</a>
