@@ -21,8 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find_by(id: params[:id])
-    @user = current_user
+
     @client_id = ENV['GITHUB_TOKEN']
 
   end
@@ -46,7 +45,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name,
       :email,
-      :github_url,
+      :github_handle,
       :picture_url,
       :personal_url,
       :password,

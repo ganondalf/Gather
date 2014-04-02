@@ -6,7 +6,7 @@
 #  name            :string(255)
 #  email           :string(255)
 #  password_digest :string(255)
-#  github_url      :string(255)
+#  github_handle      :string(255)
 #  personal_url    :string(255)
 #  admin           :boolean          default(FALSE)
 #  picture_url     :string(255)
@@ -22,7 +22,7 @@ describe User do
 
   it { should validate_presence_of(:name)}
   it { should validate_presence_of(:email)}
-  it { should validate_presence_of(:github_url)}
+  it { should validate_presence_of(:github_handle)}
   it { should validate_presence_of(:password)}
   it { should have_secure_password }
   it { should ensure_length_of(:password).is_at_least(3).is_at_most(20) }

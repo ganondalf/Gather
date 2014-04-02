@@ -1,32 +1,70 @@
-<h2><%= @user.name %>'s Profile Page</h2>
+<h2><%= current_user.name %>'s Profile Page</h2>
 <h3>
   <a href="/">Home Page</a>
-  <a href="/users/<%= @user.id %>/edit">Edit Account</a>
+  <a href="/users/<%= current_user.id %>/edit">Edit Account</a>
 </h3>
 
-<img src="<%=@user.picture_url %>">
+<img src="<%=current_user.picture_url %>">
 
-<h2> Helpful Links:
+<h2> Helpful Links:</h2>
+<h3>
   <ul>
-    <li><a href="<%=@user.github_url %>">GitHub</a></li>
-    <li><a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= @client_id %>">Gists</a></li>
+    <li><a href="https://github.com/<%=current_user.github_handle %>">GitHub Profile</a></li>
+    <li><a href="https://github.com/login/oauth/authorize?scope=user:email&client_id=<%= @client_id %>">GitHub Gists</a></li>
     <li><a href="https://www.pivotaltracker.com/signin">Pivotal Tracker</a></li>
-    <% if @user.personal_url != nil %>
-      <li><a href="<%=@user.personal_url %>"><button>Personal Website</a></li>
-    <% end %>
+      <% if current_user.personal_url != nil %>
+        <li><a href="<%= current_user.personal_url %>">Personal Website</a></li>
+      <% end %>
   </ul>
-</h2>
-
-<h2><%= @user.name %>'s Learning Objectives
-  <ul>
-    <li><% @user.ranks.each do |rank| %>
-        <%= rank.objective.name %>:<%= rank.objective.value %>
+</h3>
+<!-- This will display each learning objective based on rank -->
+<h2><%= current_user.name %>'s Learning Objectives</h2>
+  <h3> Things I've mastered:
+      <% current_user.ranks.each do |rank| %>
+       <ul>
+          <% if rank.value == 5 %>
+            <li><%= rank.objective.description %>
+              <button>Edit</button>
+            </li>
+          <% end %>
         <% end %>
-    </li>
-  </ul>
-</h2>
+        </ul>
+  </h3>
+  <h3> Things I need to review:
+    <ul>
+      <% current_user.ranks.each do |rank| %>
+      <% if rank.value == 4 || rank.value == 3 %>
+      <li><%= rank.objective.description %>
+        <button>Edit</button></a>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </h3>
+  <h3> Things I still don't understand:
+    <ul>
+      <% current_user.ranks.each do |rank| %>
+      <% if rank.value == 1 || rank.value == 2 %>
+      <li><%= rank.objective.description %>
+        <button>Edit</button>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </h3>
+  <h3> Please rank the following:
+    <ul>
+      <% current_user.ranks.each do |rank| %>
+      <% if rank.value == 0 %>
+      <li><%= rank.objective.description %>
+          <button>Edit</button>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </h3>
 
-<% if @user.is_admin? %>
+<% if current_user.is_admin? %>
   <h2>Admin Controls
     <ul>
       <li><a href="/objectives/new">Add New Objective</a></li>

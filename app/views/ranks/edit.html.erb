@@ -1,0 +1,6 @@
+
+<%= form_for(@rank) do |f| %>
+<%= f.select(:value, options_for_select(
+    [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
+<%= f.submit("Update Rank") %>
+<% end %>

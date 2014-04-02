@@ -9,15 +9,15 @@
   WEEK <%= objective.week_id %>
   <ul>
     <li><a href="/objectives/<%= objective.id %>"><%= objective.description %></a>
-
-      <%= form_for Rank.new, as: :rank do |f| %>
-        <%= f.hidden_field :objective_id, :value => objective.id %>
-        Level of Understanding:
-        <%= f.select(:value, options_for_select(
-        [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
-        <%= f.submit(:Submit) %>
-
+      <% if logged_in? %>
+        <%= form_for Rank.new, as: :rank do |f| %>
+          <%= f.hidden_field :objective_id, :value => objective.id %>
+          Level of Understanding:
+          <%= f.select(:value, options_for_select(
+          [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
+          <%= f.submit(:Submit) %>
         <% end %>
+      <% end %>
 
     </li>
   </ul>
