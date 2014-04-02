@@ -38,7 +38,6 @@ class SessionController < ApplicationController
     # contains 3 {key => value} pairs: {'access_token' => 'XXX', 'scope' => user%3Aemail,'token_type' => 'bearer'}
     # create a custom parse in new method (see below)
     session[:api_token] = parse(result)["access_token"]
-    # binding.pry
     # Carolyn: a8410e3fdb9c813b10b4f571b45be6250115d551
     # Max/David: 6009030e65de59e725bbd335cc58d453dc9c8bd0
 
