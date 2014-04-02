@@ -20,8 +20,8 @@
 <!-- This will display each learning objective based on rank -->
 <h2><%= current_user.name %>'s Learning Objectives</h2>
   <h3> Things I've mastered:
-      <% current_user.ranks.each do |rank| %>
-       <ul>
+      <ul>
+        <% current_user.ranks.each do |rank| %>
           <% if rank.value == 5 %>
             <li><%= rank.objective.description %>
               <button>Edit</button>

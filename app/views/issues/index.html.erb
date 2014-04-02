@@ -3,5 +3,6 @@
 <%= gist["raw_url"] %>
 <p>Description:</p>
 <%= gist["description"] %>
-<img src="<%= gist["url"] %>">
+<!-- Working on installing bluecloth gem to embed each gist directly into page  -->
+<img src="<%= gist["html_url"] %>">
 <% end %>
