@@ -21,9 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
     @client_id = ENV['GITHUB_TOKEN']
-
   end
 
   def edit

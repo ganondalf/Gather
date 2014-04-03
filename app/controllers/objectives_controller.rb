@@ -49,6 +49,8 @@ class ObjectivesController < ApplicationController
 
   def destroy
     objective = Objective.find(params[:id])
+    rank = Rank.find_by(objective_id: objective.id)
+    rank.delete
     objective.delete
     redirect_to("/objectives")
   end

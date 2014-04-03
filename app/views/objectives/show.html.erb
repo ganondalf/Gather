@@ -1,4 +1,6 @@
 <h1>Edit or Delete the Learning Objective below:</h1>
+<% if logged_in? %>
+
 <%= @objective.description %>
 
 <h3>Edit</h3>
@@ -7,3 +9,7 @@
   <%= form_for(:objective, { :method => :delete }) do |f| %>
   <%= f.submit "Delete" %>
   <% end %>
+
+<% else %>
+<h1> You are not authorized to see this page. </h1>
+<% end %>

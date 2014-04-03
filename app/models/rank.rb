@@ -14,4 +14,12 @@ class Rank < ActiveRecord::Base
   belongs_to :user
   belongs_to :objective
 
+  # def dupe?(rank)
+  #   if rank.objective_id && rank.user_id
+  #     old_rank = Rank.find_by()
+  #   else
+
+  #   end
+
+
 end

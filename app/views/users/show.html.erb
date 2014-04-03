@@ -18,50 +18,45 @@
   </ul>
 </h3>
 <!-- This will display each learning objective based on rank -->
+<!-- Refactor by creating a show learning objectives method in the user model -->
+
 <h2><%= current_user.name %>'s Learning Objectives</h2>
   <h3> Things I've mastered:
-      <ul>
-        <% current_user.ranks.each do |rank| %>
-          <% if rank.value == 5 %>
-            <li><%= rank.objective.description %>
-              <button>Edit</button>
-            </li>
-          <% end %>
+    <ul>
+      <% current_user.ranks.each do |rank| %>
+        <% if rank.value == 5 %>
+          <li><%= rank.objective.description %></li>
         <% end %>
-        </ul>
+      <% end %>
+    </ul>
   </h3>
   <h3> Things I need to review:
     <ul>
       <% current_user.ranks.each do |rank| %>
-      <% if rank.value == 4 || rank.value == 3 %>
-      <li><%= rank.objective.description %>
-        <button>Edit</button></a>
-      </li>
-      <% end %>
+        <% if rank.value == 4 || rank.value == 3 %>
+          <li><%= rank.objective.description %></li>
+        <% end %>
       <% end %>
     </ul>
   </h3>
   <h3> Things I still don't understand:
     <ul>
       <% current_user.ranks.each do |rank| %>
-      <% if rank.value == 1 || rank.value == 2 %>
-      <li><%= rank.objective.description %>
-        <button>Edit</button>
-      </li>
-      <% end %>
+        <% if rank.value == 1 || rank.value == 2 %>
+          <li><%= rank.objective.description %></li>
+        <% end %>
       <% end %>
     </ul>
+    Have you been studying? <a href="/objectives">Click here</a> to reaccess yourself!
   </h3>
   <!-- ASSIGN ALL LEARNING OBJECTIVES TO USER BY DEFAULT SO AL UNRANKED OBJECTIVES POPULATED THIS AREA -->
   <!-- ADD EDIT FUNCTIONALITY -->
-  <h3> Please rank the following:
+  <h3>Unranked objectives:
     <ul>
       <% current_user.ranks.each do |rank| %>
-      <% if rank.value == 0 %>
-      <li><%= rank.objective.description %>
-          <button>Edit</button>
-      </li>
-      <% end %>
+        <% if rank.value == 0 %>
+          <li><%= rank.objective.description %></li>
+        <% end %>
       <% end %>
     </ul>
   </h3>

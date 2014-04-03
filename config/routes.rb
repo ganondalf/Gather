@@ -17,6 +17,7 @@ GatherApp::Application.routes.draw do
   get '/callback' => 'session#github_auth'
 
 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -28,4 +28,5 @@ class User < ActiveRecord::Base
     self.admin
   end
 
+
 end

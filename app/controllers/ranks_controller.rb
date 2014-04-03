@@ -1,9 +1,19 @@
 class RanksController < ApplicationController
 
+  def index
+    @ranks = Rank.all
+  end
+
   def create
 
     objective_id = params[:rank][:objective_id]
     objective = Objective.find_by(id: objective_id)
+
+    exist_rank = Rank.find_by(objective_id: objective_id, user_id: current_user.id)
+
+    if exist_rank
+      exist_rank.delete.save
+    end
 
     value = params[:rank][:value]
 
@@ -21,35 +31,5 @@ class RanksController < ApplicationController
     redirect_to('/objectives')
 
   end
-
-  def edit
-    @rank = Rank.find_by(id: params[:id])
-  end
-
-  def update
-    @rank = Rank.find_by(id: params[:id])
-
-    objective_id = @rank.objective
-    objective = Objective.find_by(id: objective_id)
-
-    @rank.value = params[:rank][:value]
-    @rank.objective = objective
-    @rank.user = current_user
-
-      if @rank.save
-        redirect_to("/users/#{current_user.id}")
-      else
-        render(:edit)
-      end
-  end
-
-
-  # private
-  #   def rank_params
-  #     params.require(:rank).permit(
-  #       :objective,
-  #       :user,
-  #       :value)
-  #   end
 
 end
