@@ -9,8 +9,9 @@ GatherApp::Application.routes.draw do
   resources :users
   resources :ranks
   resources :objectives
-  # resources :ranks
-  # resources :resources
+  resources :weeks
+  resources :resources
+
   resources :session, only:[:new, :create, :destroy]
 
   get '/logout' => 'session#destroy'

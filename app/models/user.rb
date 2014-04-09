@@ -15,7 +15,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :ranks
+  has_many :ranks, dependent: :destroy
   has_many :objectives, through: :ranks
 
   validates :name, :email, :github_handle, presence: true

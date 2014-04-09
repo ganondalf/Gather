@@ -39,7 +39,6 @@ class ObjectivesController < ApplicationController
     @objective = Objective.find(params[:id])
     @objective.week = week
 
-
     if @objective.save
       redirect_to('/objectives')
     else

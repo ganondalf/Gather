@@ -13,8 +13,7 @@
 <% if logged_in? && current_user.is_admin? %>
   <h2>Admin Controls
     <ul>
-      <li><a href="/objectives/new">Add New Objective</a></li>
-      <li><a href="/objectives">Delete An Objective</a></li>
+      <li><%= link_to "Add New Objective", new_objective_path %></li>
     </ul>
   </h2>
 <% end %>

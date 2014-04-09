@@ -12,9 +12,10 @@
 #
 
 class Objective < ActiveRecord::Base
+
   belongs_to :resource
   belongs_to :week
-  has_many :ranks
+  has_many :ranks, dependent: :destroy
   has_many :users, through: :ranks
   validates :description, presence: true, length: { maximum: 500}
 

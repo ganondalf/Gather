@@ -3,6 +3,7 @@
   <tr>
     <th>Description</th>
     <th>Level of Understanding</th>
+    <th>Admin Controls</th>
   </tr>
 
   <tr>
@@ -12,6 +13,9 @@
       <ul>
     </td>
     <td><%= render partial: "ranks/form", locals: { :objective => objective }%></td>
+    <% if current_user.admin %>
+    <td><%= link_to "Delete Objective", { action: :destroy, id: objective.id }, method: :delete %></td>
+    <% end %>
   </tr>
 </table>
 
