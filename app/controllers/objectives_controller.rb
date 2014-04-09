@@ -4,6 +4,7 @@ class ObjectivesController < ApplicationController
 
   def index
     @objectives = Objective.all
+    @rank = Rank.new
   end
 
   def new

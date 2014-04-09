@@ -1,0 +1,29 @@
+<table>
+  <th>Description</th>
+
+    <tr>
+      <td>Things I've mastered:
+          <ul><%= if objective.rank == 5 %>
+                objective.description
+              <% end %></ul>
+      <td><%= render 'ranks/form' %></td>
+    </tr>
+
+    <tr>
+      <td>Things I need to review</td>
+          <ul><%= if objective.rank == 3 || objective.rank == 4 %>
+                objective.description
+              <% end %></ul>
+      <td><%= render 'ranks/form' %></td>
+    </tr>
+
+    <tr>
+      <td>Things I don't understand</td>
+          <%= if objective.rank == 1 || objective.rank == 2 %>
+            objective.description
+            <% end %></ul>
+      <td><%= render 'ranks/form' %></td>
+    </tr>
+
+</table>
+

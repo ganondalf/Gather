@@ -1,28 +1,16 @@
 class RanksController < ApplicationController
 
-  def index
-    @ranks = Rank.all
+  def new
+    @rank = Rank.new
   end
 
   def create
 
-    objective_id = params[:rank][:objective_id]
-    objective = Objective.find_by(id: objective_id)
+    @rank.user = current_user
+    @rank.objective = objective
+    @rank.value = params[:rank][:value]
 
-    exist_rank = Rank.find_by(objective_id: objective_id, user_id: current_user.id)
-
-    if exist_rank
-      exist_rank.delete.save
-    end
-
-    value = params[:rank][:value]
-
-    rank = Rank.new
-    rank.user = current_user
-    rank.objective = objective
-    rank.value = value
-
-    if rank.save
+    if @rank.save
       flash[:notice] = "This objective has been saved in your user profile"
     else
       flash[:notice] = "An error has occurred. Please try again."
@@ -31,5 +19,16 @@ class RanksController < ApplicationController
     redirect_to('/objectives')
 
   end
+
+  def update
+
+    @rank = Rank.find(params[:id])
+    @rank.value = params[:rank][:value]
+
+    @rank.save
+    redirect_to("/users/#{current_user.id}")
+
+  end
+
 
 end

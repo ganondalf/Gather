@@ -7,14 +7,19 @@ GatherApp::Application.routes.draw do
 
   resources :issues
   resources :users
-  resources :objectives
   resources :ranks
+  resources :objectives
+  # resources :ranks
   # resources :resources
   resources :session, only:[:new, :create, :destroy]
 
-
   get '/logout' => 'session#destroy'
   get '/callback' => 'session#github_auth'
+
+
+  # get '/users/:id/ranks/:id/edit' => 'ranks#edit'
+
+
 
 
 
@@ -69,33 +74,39 @@ GatherApp::Application.routes.draw do
 end
 
 
-#  Prefix Verb   URI Pattern                    Controller#Action
-#           root GET    /                              welcome#index
-#          users GET    /users(.:format)               users#index
-#                POST   /users(.:format)               users#create
-#       new_user GET    /users/new(.:format)           users#new
-#      edit_user GET    /users/:id/edit(.:format)      users#edit
-#           user GET    /users/:id(.:format)           users#show
-#                PATCH  /users/:id(.:format)           users#update
-#                PUT    /users/:id(.:format)           users#update
-#                DELETE /users/:id(.:format)           users#destroy
-#     objectives GET    /objectives(.:format)          objectives#index
-#                POST   /objectives(.:format)          objectives#create
-#  new_objective GET    /objectives/new(.:format)      objectives#new
-# edit_objective GET    /objectives/:id/edit(.:format) objectives#edit
-#      objective GET    /objectives/:id(.:format)      objectives#show
-#                PATCH  /objectives/:id(.:format)      objectives#update
-#                PUT    /objectives/:id(.:format)      objectives#update
-#                DELETE /objectives/:id(.:format)      objectives#destroy
-#      resources GET    /resources(.:format)           resources#index
-#                POST   /resources(.:format)           resources#create
-#   new_resource GET    /resources/new(.:format)       resources#new
-#  edit_resource GET    /resources/:id/edit(.:format)  resources#edit
-#       resource GET    /resources/:id(.:format)       resources#show
-#                PATCH  /resources/:id(.:format)       resources#update
-#                PUT    /resources/:id(.:format)       resources#update
-#                DELETE /resources/:id(.:format)       resources#destroy
-#  session_index POST   /session(.:format)             session#create
-#    new_session GET    /session/new(.:format)         session#new
-#        session DELETE /session/:id(.:format)         session#destroy
-#         logout GET    /logout(.:format)              session#destroy
+# #  Prefix Verb   URI Pattern                                   Controller#Action
+#               root GET    /                                             welcome#index
+#             issues GET    /issues(.:format)                             issues#index
+#                    POST   /issues(.:format)                             issues#create
+#          new_issue GET    /issues/new(.:format)                         issues#new
+#         edit_issue GET    /issues/:id/edit(.:format)                    issues#edit
+#              issue GET    /issues/:id(.:format)                         issues#show
+#                    PATCH  /issues/:id(.:format)                         issues#update
+#                    PUT    /issues/:id(.:format)                         issues#update
+#                    DELETE /issues/:id(.:format)                         issues#destroy
+#              users GET    /users(.:format)                              users#index
+#                    POST   /users(.:format)                              users#create
+#           new_user GET    /users/new(.:format)                          users#new
+#          edit_user GET    /users/:id/edit(.:format)                     users#edit
+#               user GET    /users/:id(.:format)                          users#show
+#                    PATCH  /users/:id(.:format)                          users#update
+#                    PUT    /users/:id(.:format)                          users#update
+#                    DELETE /users/:id(.:format)                          users#destroy
+#          edit_rank GET    /ranks/:id/edit(.:format)                     ranks#edit
+#               rank PATCH  /ranks/:id(.:format)                          ranks#update
+#                    PUT    /ranks/:id(.:format)                          ranks#update
+#    objective_ranks POST   /objectives/:objective_id/ranks(.:format)     ranks#create
+# new_objective_rank GET    /objectives/:objective_id/ranks/new(.:format) ranks#new
+#         objectives GET    /objectives(.:format)                         objectives#index
+#                    POST   /objectives(.:format)                         objectives#create
+#      new_objective GET    /objectives/new(.:format)                     objectives#new
+#     edit_objective GET    /objectives/:id/edit(.:format)                objectives#edit
+#          objective GET    /objectives/:id(.:format)                     objectives#show
+#                    PATCH  /objectives/:id(.:format)                     objectives#update
+#                    PUT    /objectives/:id(.:format)                     objectives#update
+#                    DELETE /objectives/:id(.:format)                     objectives#destroy
+#      session_index POST   /session(.:format)                            session#create
+#        new_session GET    /session/new(.:format)                        session#new
+#            session DELETE /session/:id(.:format)                        session#destroy
+#             logout GET    /logout(.:format)                             session#destroy
+#           callback GET    /callback(.:format)                           session#github_auth

@@ -4,24 +4,11 @@
   <h2>No objectives exist in the database</h2>
 <% end %>
 
-<!-- FIGURE OUT WAY TO ORGANIZE OBJECTIVES INTO TABLES BY WEEK -->
-<% @objectives.each do |objective| %>
-
-  WEEK <%= objective.week_id %>
-  <ul>
-    <li><a href="/objectives/<%= objective.id %>"><%= objective.description %></a>
-      <% if logged_in? %>
-        <%= form_for Rank.new, as: :rank do |f| %>
-          <%= f.hidden_field :objective_id, :value => objective.id %>
-          Level of Understanding:
-          <%= f.select(:value, options_for_select(
-          [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
-          <%= f.submit(:Submit) %>
-        <% end %>
-      <% end %>
-    </li>
-  </ul>
+<h3>Week 1</h3>
+<% if logged_in? %>
+<%= render partial: "table", collection: @objectives, as: "objective" %>
 <% end %>
+
 
 <% if logged_in? && current_user.is_admin? %>
   <h2>Admin Controls

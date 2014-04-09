@@ -26,6 +26,13 @@
       <% current_user.ranks.each do |rank| %>
         <% if rank.value == 5 %>
           <li><%= rank.objective.description %></li>
+              <!-- .new_record? runs record and checks if record is new or exists. If new, automatically routes it to action#create. Else, sends it to actions#update -->
+              <%= form_for rank do |f| %>
+                <%= f.select(:value, options_for_select(
+                    [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
+                    <!-- look up placeholder for rank.value -->
+                <%= f.submit %>
+              <% end %>
         <% end %>
       <% end %>
     </ul>
@@ -35,6 +42,12 @@
       <% current_user.ranks.each do |rank| %>
         <% if rank.value == 4 || rank.value == 3 %>
           <li><%= rank.objective.description %></li>
+              <%= form_for rank do |f| %>
+                <%= f.select(:value, options_for_select(
+                    [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
+                    <!-- look up placeholder for rank.value -->
+                <%= f.submit %>
+              <% end %>
         <% end %>
       <% end %>
     </ul>
@@ -44,6 +57,12 @@
       <% current_user.ranks.each do |rank| %>
         <% if rank.value == 1 || rank.value == 2 %>
           <li><%= rank.objective.description %></li>
+              <%= form_for rank do |f| %>
+                <%= f.select(:value, options_for_select(
+                    [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]])) %>
+                    <!-- look up placeholder for rank.value -->
+                <%= f.submit %>
+              <% end %>
         <% end %>
       <% end %>
     </ul>
